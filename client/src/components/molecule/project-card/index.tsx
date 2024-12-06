@@ -13,7 +13,7 @@ function ProjectCard({
 }: ProjectCardProps) {
   return (
     <Card
-      className="flex p-0 rounded-md overflow-hidden bg-jet w-[200px] h-[100px]"
+      className="flex p-0 rounded-md overflow-hidden bg-jet w-[200px] h-[100px] cursor-pointer hover:bg-gray25 hover:-translate-x-5 transition ease-in-out"
       data-testid="project-card"
     >
       <div className="overflow-hidden">
@@ -34,7 +34,7 @@ function ProjectCard({
         </p>
         <p
           data-testid="project-description"
-          className="text-xs text-gray-400 max-w-[350px] truncate"
+          className="text-xs text-gray-400 w-[350px] line-clamp-2"
         >
           {description}
         </p>

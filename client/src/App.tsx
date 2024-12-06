@@ -16,13 +16,17 @@ function App() {
 
   return (
     <div className="App bg-dark-blue w-screen h-screen box-border flex flex-col">
-      <header className="">
-        <NavBar list={nav} />
+      <header className="max-h-[20%]">
+        {/* <NavBar list={nav} /> */}
       </header>
-      <body className="h-[100%] px-16 py-8">
+      <body className="max-h-[100%] w-[100%] p-24 flex justify-between">
         {/* <HomePage /> */}
-        {/* <AboutPage /> */}
-        <ProjectPage />
+        <section className="w-[50%]">
+          <AboutPage />
+        </section>
+        <section className="w-[50%]">
+          <ProjectPage />
+        </section>
       </body>
     </div>
   );
