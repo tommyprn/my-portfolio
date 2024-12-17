@@ -9,6 +9,20 @@
   box-sizing: border-box;
 }
 
+p span {
+  padding: 0;
+  margin: 0;
+}
+
+/* width */
 ::-webkit-scrollbar {
-  display: none;
+  background: #121315;
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 10px;
+  padding: 10px;
 }

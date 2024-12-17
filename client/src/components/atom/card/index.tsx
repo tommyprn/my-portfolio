@@ -1,22 +1,41 @@
 import { ReactNode } from "react";
-// import classNames from "../../../utils/class-names";
+import classNames from "../../../utils/class-names";
 
 interface CardProps {
+  id: string;
   border?: boolean;
   shadow?: boolean;
   children: ReactNode;
   className?: string;
+  onClick?: () => void;
+  setIsHover?: (item: boolean) => void;
 }
 
 function Card({
+  id,
   border,
   shadow,
+  onClick,
   children,
   className,
+  setIsHover,
 }: CardProps) {
   return (
     <div
-      className={`min-h-[100px] min-w-[100px] w-fit rounded-md ${className}`}
+      id={id}
+      className={classNames(
+        "w-fit rounded-md",
+        className
+      )}
+      onClick={() => {
+        if (onClick) onClick();
+      }}
+      onMouseEnter={() => {
+        if (setIsHover) setIsHover(true);
+      }}
+      onMouseLeave={() => {
+        if (setIsHover) setIsHover(false);
+      }}
     >
       {children}
     </div>

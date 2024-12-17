@@ -1,15 +1,36 @@
-function AboutPage() {
+import Menu from "../../components/atom/menu";
+
+interface AboutProps {
+  onClickExp: () => void;
+  onClickProj: () => void;
+  isExperience: boolean;
+}
+
+function AboutPage({
+  onClickExp,
+  onClickProj,
+  isExperience,
+}: AboutProps) {
   return (
-    <div className="flex flex-col gap-4 text-left w-[70%]">
-      <p className="text-3xl text-gold font-black tracking-wide">
+    <div className="flex flex-col gap-4 text-left">
+      <span
+        id="full-name"
+        className="text-4xl text-gold font-black tracking-wide"
+      >
         Tommy Pranoto
-      </p>
+      </span>
 
-      <p className="text-xl text-gold font-semibold">
+      <span
+        id="occupation"
+        className="text-xl text-gold font-semibold"
+      >
         Front End Engineer
-      </p>
+      </span>
 
-      <p className="text-sm text-gold ">
+      <p
+        id="about-me"
+        className="text-sm text-gold text-justify lg:w-[70%]"
+      >
         I’m a passionate Front-End Developer with
         3 years of hands-on experience crafting
         dynamic, JavaScript-driven applications.
@@ -20,9 +41,22 @@ function AboutPage() {
         engaging user experiences.
       </p>
 
+      <div className="text-sm flex flex-col gap-2 mt-4">
+        <Menu
+          text="experience"
+          onClick={onClickExp}
+          isActive={isExperience}
+        />
+        <Menu
+          text="past project"
+          onClick={onClickProj}
+          isActive={!isExperience}
+        />
+      </div>
+
       <div
         id="contacts"
-        className="flex gap-4 items-center mt-20"
+        className="flex gap-4 items-center mt-8"
       >
         <a
           id="linkedin"

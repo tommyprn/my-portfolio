@@ -12,6 +12,12 @@ module.exports = {
         gray25: "#404040",
         hunyadi: "#DE9E36",
         "dark-blue": "#121315",
+        "pale-peach": "#fff7e0",
+        "dutch-white": "#E4DEB9",
+        "dark-vanilla": "#C6C1A0",
+        "pale-peach-800": "#fff7e0cc",
+        "pale-peach-700": "#fff7e0b3",
+        "pale-peach-600": "#fff7e099",
       },
       boxShadow: {
         "elevation-1": [
