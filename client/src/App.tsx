@@ -10,6 +10,7 @@ import ProjectPage from "./pages/project";
 import ExperiencePage from "./pages/experience";
 
 function App() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [scrollPosition, setScrollPosition] =
     useState<number>(0);
   const [experience, setExperience] =
