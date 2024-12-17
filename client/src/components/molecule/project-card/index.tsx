@@ -38,7 +38,7 @@ function ProjectCard({
         "cursor-pointer lg:hover:bg-gray25 lg:hover:-translate-x-5 lg:transition ease-in-out"
       )}
     >
-      <div className="overflow-hidden relative max-h-[150px] xl:max-h-[110px]">
+      <div className="overflow-hidden bg-black relative max-h-[160px] xl:max-h-[110px]">
         <img
           alt={src}
           src={src}
@@ -50,7 +50,7 @@ function ProjectCard({
         )}
       </div>
 
-      <section className="text-left px-4 py-2 flex flex-col justify-between w-[70%] lg-w-[60%]">
+      <section className="text-left pl-2 lg:px-4 py-2 flex flex-col justify-between w-[70%]">
         <div>
           <div className="flex items-center gap-2">
             <span
@@ -80,7 +80,7 @@ function ProjectCard({
           </p>
         </div>
 
-        <ul className="flex gap-4 flex-wrap mt-4">
+        <ul className="flex gap-2 lg:gap-4 flex-wrap mt-4">
           {tools.map((item, i) => (
             <li key={i}>
               <Chip content={item} />
