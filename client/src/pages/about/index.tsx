@@ -32,7 +32,7 @@ function AboutPage({
         className="text-sm text-gold text-justify lg:w-[70%]"
       >
         I’m a passionate Front-End Developer with
-        3 years of hands-on experience crafting
+        4 years of hands-on experience crafting
         dynamic, JavaScript-driven applications.
         Enthusiastic about creating responsive web
         designs and championing best practices in
@@ -48,7 +48,7 @@ function AboutPage({
           isActive={isExperience}
         />
         <Menu
-          text="past project"
+          text="past projects"
           onClick={onClickProj}
           isActive={!isExperience}
         />
@@ -97,7 +97,7 @@ function AboutPage({
         <a
           id="whatsapp"
           rel="noreferrer"
-          href="https://wa.me/+628179196363"
+          href="https://wa.me/+6281931197146"
           target="_blank"
           className="cursor-pointer "
         >

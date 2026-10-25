@@ -14,10 +14,22 @@ p span {
   margin: 0;
 }
 
-/* width */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* width and height */
 ::-webkit-scrollbar {
   background: #121315;
   width: 10px;
+  height: 6px;
 }
 
 /* Handle */

@@ -12,6 +12,52 @@ interface dataProps {
 function ProjectPage() {
   const data: dataProps[] = [
     {
+      src: generateImage(""),
+      url: [
+        "",
+      ],
+      title: "Sovereign Dashboard",
+      tools: [
+        "React",
+        "Tailwind-Css",
+        "tanstack-query",
+      ],
+      description:
+        "Engineered an AI-powered legal platform using fine-tuned open-source LLMs to automatically analyze complex user scenarios, match relevant Indonesian laws, and process dynamic document updates from PDFs and images."
+    },
+    {
+      src: generateImage(""),
+      url: [
+        "",
+      ],
+      title: "RHD Garage",
+      tools: [
+        "React",
+        "Axios",
+        "ChartJs",
+        "Material-UI",
+        "Tailwind-Css",
+        "tanstack-query",
+      ],
+      description:
+        "POS system built for automotive workshops. It helps workshops to manage their customers, services, and inventory. We also integrate booking and delivery features for customer convenience by mobile app.",
+    },
+    {
+      src: generateImage(""),
+      url: [
+        "",
+      ],
+      title: "KOPERASEA",
+      tools: [
+        "React",
+        "Axios",
+        "Material-UI",
+        "Tailwind-Css",
+      ],
+      description:
+        "Digitalized system of shrimp export supply chain from harvest to port logistics, ensuring end-to-end data integrity and traceability essential for audit compliance.",
+    },
+    {
       src: generateImage("orbit"),
       url: [
         "https://github.com/tommyprn/orbit-fe",
@@ -25,7 +71,7 @@ function ProjectPage() {
         "Material-UI",
       ],
       description:
-        "ORBIT web is used to digitalized reporting proccess of unexpected events in all of Bank Muamalat branches across Indonesia. It mainly helps internal risk management division to sort out most of their documents",
+        "Digitalized system of reporting proccess of unexpected events in all of Bank Muamalat branches across Indonesia. It mainly helps internal risk management division to sort out most of their documents",
     },
     {
       src: generateImage("melaka"),
@@ -39,7 +85,7 @@ function ProjectPage() {
         "Storybook",
       ],
       description:
-        "Melaka is an omnichannel platform thatintegrate all of your online shops into 1 dashboard. User could manage all of their store data with only changing data in Melaka. One of our best feature is customer managing, thus combine all of  your customer data and presented to you in a more easy way to read.",
+        "An omnichannel platform that integrate all of your online shops into 1 dashboard. User could manage all of their store data with only changing data in Melaka. One of our best feature is customer managing, thus combine all of  your customer data and presented to you in a more easy way to read.",
     },
     {
       src: generateImage("autovehicle"),
@@ -54,7 +100,7 @@ function ProjectPage() {
         "OsmiCSX",
       ],
       description:
-        "Autovehicle pro is a mobile application made using company tracking system to track bus drivers/ school buses. Autovehicle also used for driver attendance, and pay check.",
+        "Mobile application made using company tracking system to track bus drivers/ school buses. Autovehicle also used for driver attendance, and pay check.",
     },
     {
       src: generateImage("crossbell"),
@@ -70,7 +116,7 @@ function ProjectPage() {
         "Material-UI",
       ],
       description:
-        "Crossbell is a web platform dedicated to revolutionizing the job search, recruitment, and headhunting process. Designed to connect top talent with leading companies, Crossbell offers a seamless and efficient user experience for both job seekers and recruiters.",
+        "Web platform dedicated to revolutionizing the job search, recruitment, and headhunting process. Designed to connect top talent with leading companies, Crossbell offers a seamless and efficient user experience for both job seekers and recruiters.",
     },
     {
       src: generateImage("retaily"),
@@ -134,11 +180,11 @@ function ProjectPage() {
   return (
     <div className="flex justify-between max-h-[100%]">
       <div
-        className="items-end flex flex-col gap-4 w-full"
+        className="items-center sm:items-end flex flex-col gap-4 w-full"
         data-testid="project-list"
       >
         {data.map((item, i) => (
-          <div key={i}>
+          <div key={i} className="w-full flex justify-center sm:justify-end">
             <ProjectCard
               url={item.url}
               src={item.src}

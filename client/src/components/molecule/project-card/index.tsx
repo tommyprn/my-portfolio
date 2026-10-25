@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { memo } from "react";
 import classNames from "../../../utils/class-names";
 
 import Card from "../../atom/card";
 import Chip from "../../atom/chip";
 
 interface ProjectCardProps {
+  id?: string;
   src: string;
   url: string[] | null;
   tools: string[];
@@ -13,76 +14,64 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({
+  id,
   src,
   url,
   tools,
   title,
   description,
 }: ProjectCardProps) {
-  const [isHover, setIsHover] =
-    useState<boolean>(false);
+  const targetUrl = url?.[0]?.trim();
+  const hasLink = Boolean(targetUrl);
+  const cardId =
+    id || `project-card-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 
-  const onClick = () => {
-    if (url && url[0] !== "") {
-      window.open(url[0], "_blank");
+  const handleClick = () => {
+    if (targetUrl) {
+      window.open(targetUrl, "_blank", "noopener,noreferrer");
     }
   };
 
   return (
     <Card
-      id="project-card"
-      onClick={onClick}
-      setIsHover={setIsHover}
+      id={cardId}
+      onClick={handleClick}
       className={classNames(
-        "flex p-0 rounded-md overflow-hidden w-[80%] min-h-[110px] bg-jet ",
+        "group flex flex-col sm:flex-row p-0 rounded-md overflow-hidden w-full max-w-[540px] sm:min-h-[120px] bg-jet",
+        hasLink &&
         "cursor-pointer lg:hover:bg-gray25 lg:hover:-translate-x-5 lg:transition ease-in-out"
       )}
     >
-      <div className="overflow-hidden bg-black relative max-h-[160px] xl:max-h-[110px]">
+      <div className="overflow-hidden bg-black relative w-full h-36 sm:w-[160px] sm:h-[120px] sm:self-stretch flex-shrink-0">
         <img
-          alt={src}
+          alt={title}
           src={src}
           width={160}
-          id="project-image"
+          height={110}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover"
         />
-        {!isHover && (
-          <div className="absolute bottom-0 left-0 bg-gradient-to-t from-gray25 opacity-40 from-5% w-[160px] h-[160px]" />
-        )}
+        <div
+          className="absolute inset-0 bg-gradient-to-t from-gray25 opacity-40 from-5% transition-opacity duration-300 group-hover:opacity-0 pointer-events-none"
+          aria-hidden="true"
+        />
       </div>
 
-      <section className="text-left pl-2 lg:px-4 py-2 flex flex-col justify-between w-[70%]">
+      <section className="text-left p-3 sm:py-2 sm:pl-3 sm:pr-4 flex flex-col justify-between flex-1 min-w-0">
         <div>
-          <div className="flex items-center gap-2">
-            <span
-              id="project-title"
-              className="font-bold text-pale-peach-800"
-            >
-              {title}
-            </span>
+          <h3 className="font-bold text-pale-peach-800 text-sm sm:text-base">
+            {title}
+          </h3>
 
-            {/* <svg
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              className="h-[16px] w-[16px] text-white hover:text-gray-500 "
-              aria-hidden="true"
-            >
-              <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"></path>
-              <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"></path>
-            </svg> */}
-          </div>
-
-          <p
-            id="project-description"
-            className="text-xs text-pale-peach-600 line-clamp-2"
-          >
+          <p className="text-xs text-pale-peach-600 line-clamp-2 mt-1">
             {description}
           </p>
         </div>
 
-        <ul className="flex gap-2 lg:gap-4 flex-wrap mt-4">
-          {tools.map((item, i) => (
-            <li key={i}>
+        <ul className="flex gap-2 sm:gap-3 overflow-x-auto flex-nowrap mt-3 sm:mt-4 no-scrollbar py-0.5">
+          {tools.map((item) => (
+            <li key={item} className="flex-shrink-0">
               <Chip content={item} />
             </li>
           ))}
@@ -92,4 +81,5 @@ function ProjectCard({
   );
 }
 
-export default ProjectCard;
+export default memo(ProjectCard);
+

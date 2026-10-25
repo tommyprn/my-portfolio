@@ -24,7 +24,8 @@ function Card({
     <div
       id={id}
       className={classNames(
-        "w-fit rounded-md",
+        "rounded-md",
+        className?.includes("w-") ? "" : "w-fit",
         className
       )}
       onClick={() => {

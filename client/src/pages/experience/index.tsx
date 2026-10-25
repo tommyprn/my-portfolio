@@ -11,6 +11,14 @@ interface dataProps {
 function ExperiencePage() {
   const data: dataProps[] = [
     {
+      company: "PT. Ras Teknologi Indonesia",
+      endDate: "Apr 2026",
+      startDate: "Feb 2025",
+      occupation: "Mobile Developer",
+      description:
+        "Designed and developed a custom POS system for repair shops, integrating and fine-tuning AI models while connecting hardware and third-party services including LiDAR, Insta360 cameras, and WhatsApp API.",
+    },
+    {
       company: "",
       endDate: "Aug 2023",
       startDate: "Jun 2022",

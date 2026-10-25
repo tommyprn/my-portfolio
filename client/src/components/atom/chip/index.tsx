@@ -6,7 +6,7 @@ interface ChipProps {
 
 function Chip({ content }: ChipProps) {
   return (
-    <p className="text-xs text-gold rounded-full bg-gray25 px-2 py-1 font-bold">
+    <p className="text-xs text-gold rounded-full bg-gray25 px-2 py-1 font-bold whitespace-nowrap">
       {content}
     </p>
   );
