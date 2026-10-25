@@ -37,7 +37,7 @@ function ProjectCard({
       id={cardId}
       onClick={handleClick}
       className={classNames(
-        "group flex flex-col sm:flex-row p-0 rounded-md overflow-hidden w-full max-w-[540px] sm:min-h-[120px] bg-jet",
+        "group flex flex-col sm:flex-row p-0 rounded-md overflow-hidden w-full  sm:min-h-[120px] bg-jet",
         hasLink &&
         "cursor-pointer lg:hover:bg-gray25 lg:hover:-translate-x-5 lg:transition ease-in-out"
       )}
